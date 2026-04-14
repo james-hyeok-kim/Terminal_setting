@@ -1,35 +1,35 @@
 # Terminal Setting
 
-Personal terminal config files (`.vimrc`, `.bashrc`) with a setup script for quick environment setup on any machine.
+Personal terminal config files (`.vimrc`, `.bashrc`) with setup scripts for quick environment setup on any machine.
 
 ## Quick Start
 
 ```bash
 git clone https://github.com/james-hyeok-kim/Terminal_setting.git
 cd Terminal_setting
-chmod +x setup.sh
-./setup.sh
+chmod +x *.sh
+./setup_all.sh
 ```
 
-## Options
+## Scripts
 
-| Option | Description |
+| Script | Description |
 |--------|-------------|
-| `./setup.sh` or `./setup.sh -a` | Install all (`.vimrc` + `.bashrc`) |
-| `./setup.sh -v` | Install `.vimrc` only |
-| `./setup.sh -b` | Install `.bashrc` only |
-| `./setup.sh -h` | Show help |
+| `setup_all.sh` | Install everything (vimrc + bashrc + vim plugins) |
+| `vimrc_setup.sh` | Install `.vimrc` + Vundle only |
+| `bashrc_setup.sh` | Install `.bashrc` only |
+| `vim_plugins_setup.sh` | Install vim plugins via Vundle (run after `vimrc_setup.sh`) |
+
+### Individual setup
+
+```bash
+./vimrc_setup.sh          # .vimrc + Vundle
+./vim_plugins_setup.sh    # NERDTree, vim-fugitive, ...
+./bashrc_setup.sh         # .bashrc
+```
 
 - Existing files are **automatically backed up** before overwriting
 - Backup location: `~/.terminal_setting_backup_YYYYMMDD_HHMMSS/`
-
-## Post-setup (vim plugins)
-
-Vundle is auto-installed by `setup.sh`. Then inside vim run:
-
-```
-:PluginInstall
-```
 
 ## Files
 
@@ -37,4 +37,3 @@ Vundle is auto-installed by `setup.sh`. Then inside vim run:
 |------|-------------|
 | `.vimrc` | Vim config — Vundle, NERDTree, syntax, indent, search |
 | `.bashrc` | Bash config — aliases, git shortcuts, history, nvm, venv |
-| `setup.sh` | Setup script |
