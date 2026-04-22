@@ -14,15 +14,24 @@ echo ""
 echo "=== bashrc setup ==="
 echo ""
 
-# Backup existing .bashrc
+# Backup existing files
 if [ -f "$HOME/.bashrc" ]; then
     mkdir -p "$BACKUP_DIR"
     cp "$HOME/.bashrc" "$BACKUP_DIR/.bashrc"
     print_warn "Backed up existing .bashrc -> $BACKUP_DIR/"
 fi
 
+if [ -f "$HOME/.bash_profile" ]; then
+    mkdir -p "$BACKUP_DIR"
+    cp "$HOME/.bash_profile" "$BACKUP_DIR/.bash_profile"
+    print_warn "Backed up existing .bash_profile -> $BACKUP_DIR/"
+fi
+
 cp "$SCRIPT_DIR/.bashrc" "$HOME/.bashrc"
 print_ok "Installed .bashrc"
+
+cp "$SCRIPT_DIR/.bash_profile" "$HOME/.bash_profile"
+print_ok "Installed .bash_profile"
 
 echo ""
 print_ok "Done! Run: source ~/.bashrc  (or restart terminal)"

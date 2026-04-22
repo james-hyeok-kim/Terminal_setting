@@ -13,6 +13,7 @@ echo "============================================"
 bash "$SCRIPT_DIR/vimrc_setup.sh"
 bash "$SCRIPT_DIR/bashrc_setup.sh"
 bash "$SCRIPT_DIR/vim_plugins_setup.sh"
+bash "$SCRIPT_DIR/tmux_setup.sh"
 
 echo ""
 echo "============================================"
